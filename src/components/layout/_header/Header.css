@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
 .header__container {
-    @apply bg-white text-primary p-4 rounded-b-xl text-center mx-2;
+    @apply p-2 m-2 bg-white rounded-xl;
+        
 }
 
-.header__logo h1 {
-    @apply  text-3xl font-bold font-sans;
+.header__logo {
+        /* TAILWINDCSS V4 ERROR */
+        /* Can not use @apply with @theme */
+        /* use the Custom Class this way */
+    color: var(--color-primary); 
+    font-family: var(--font-title);
+        
+    h1 {
+            @apply text-3xl font-bold;
+    }
+    h2 {
+            @apply text-lg font-semibold;
+    }
 }

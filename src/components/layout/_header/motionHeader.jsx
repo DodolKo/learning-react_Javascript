@@ -2,8 +2,6 @@
 import { motion } from 'motion/react'
 import './Header.css'
 
-const appName = "Learning React"
-
 const Header = ({title, baseline}) => {
     return (
         <motion.header 

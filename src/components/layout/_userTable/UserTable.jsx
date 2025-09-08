@@ -1,5 +1,6 @@
-import React from "react";
-import UserCard from "@/components/layout/_userCard/UserCard";
+import React, { useEffect } from "react";
+import { animate, stagger } from 'motion/react';
+import UserCard from "@/components/layout/_userCard/motionUserCard";
 import UsersData from "@/data/UsersData.json";
 import './UserTable.css';
 

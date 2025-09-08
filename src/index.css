@@ -8,9 +8,9 @@
   --color-background: #ffffff;
   --color-text: #00f0ff;
   
-  --font-family-sans: 'Space Grotesk', sans-serif;
-  --font-family-serif: 'Space Grotesk', sans-serif;
-  --font-family-mono: 'Space Mono', monospace;
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-subtitle: 'Space Grotesk', sans-serif;
+  --font-text: 'Space Mono', monospace;
   
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -26,20 +26,4 @@
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-}
-
-/* Définir les classes personnalisées pour une syntaxe plus propre */
-@layer utilities {
-  .text-primary { color: var(--color-primary); }
-  .text-secondary { color: var(--color-secondary); }
-  .text-accent { color: var(--color-accent); }
-  .text-custom { color: var(--color-text); }
-  
-  .bg-primary { background-color: var(--color-primary); }
-  .bg-secondary { background-color: var(--color-secondary); }
-  .bg-accent { background-color: var(--color-accent); }
-  .bg-custom { background-color: var(--color-background); }
-  
-  .border-primary { border-color: var(--color-primary); }
-  .border-secondary { border-color: var(--color-secondary); }
 }
