@@ -1,21 +1,18 @@
+/* Version 1.0 du header de base*/
 
 const appName = "Learning React"
 
-const header = () => {
+const Header = ({title, baseline}) => {
     return (
         <header className="headerContainer">
             <div className="header__logo">
-                <h1> {appName} </h1>
+                <h1> {title} </h1>
+                <h2> {baseline} </h2>
             </div>
 
 
-            <nav>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </nav>
         </header>
     )
 }
+
+export default Header
