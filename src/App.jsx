@@ -5,7 +5,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 /*import component*/
-import  Header from './components/layout/motionHeader.jsx'
+import  Header from './components/layout/_header/motionHeader.jsx'
+import UserTable from './components/layout/_userTable/UserTable.jsx'
 
 const libName = "React"
 
@@ -16,6 +17,8 @@ const App = () => {
         title='Bienvenu(e) sur mon premier projet react'
         baseline="C'est pas mal react quand même !"
       />
+
+      <UserTable />
     </div>
   )
 }

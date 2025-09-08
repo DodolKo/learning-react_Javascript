@@ -1,12 +1,13 @@
 /*import basic de motion/react */
 import { motion } from 'motion/react'
+import './Header.css'
 
 const appName = "Learning React"
 
 const Header = ({title, baseline}) => {
     return (
         <motion.header 
-            className="headerContainer"
+            className="header__container"
             initial={{ scale: 0.1, opacity: 0.0 }}
             animate={{ scale: 1.0, opacity: 1.0 }}
             transition={{

@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "userName": "Jean",
+      "userSurname": "Dupont",
+      "userClass": "Développement",
+      "userAge": 25
+    },
+    {
+      "id": 2,
+      "userName": "Marie",
+      "userSurname": "Martin",
+      "userClass": "Design",
+      "userAge": 28
+    },
+    {
+      "id": 3,
+      "userName": "Pierre",
+      "userSurname": "Durand",
+      "userClass": "Marketing",
+      "userAge": 32
+    },
+    {
+      "id": 4,
+      "userName": "Sophie",
+      "userSurname": "Leroy",
+      "userClass": "Développement"
+    },
+    {
+      "id": 5,
+      "userName": "Thomas",
+      "userSurname": "Moreau",
+      "userAge": 30
+    },
+    {
+      "id": 6,
+      "userName": "Julie",
+      "userSurname": "Petit",
+      "userClass": "Marketing",
+      "userAge": 24
+    }
+  ]

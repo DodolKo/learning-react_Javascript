@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.header__container {
+    @apply bg-white text-primary p-4 rounded-b-xl text-center mx-2;
+}
+
+.header__logo h1 {
+    @apply  text-3xl font-bold font-sans;
+}
