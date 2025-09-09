@@ -2,8 +2,9 @@ import './App.css'
 
 import MotionHeader from '@/components/layout/_header/motionHeader.jsx'
 import WeatherWidget from '@/components/layout/_weatherWidget/WeatherWidget.jsx'
+import DisplayCard from './components/layout/_displayCard/MotionDisplayCard'
 
-import Demo from '@/components/layout/_threeFiberDemo/demo4.jsx'
+import Demo from '@/components/layout/_threeFiberDemo/demo2.jsx'
 
 
 import { useAppInitialization } from '@/hooks/useAppInitialization'
@@ -18,14 +19,18 @@ const App = () => {
         <MotionHeader title='null' />
         {isUserLoaded && (
           <div className="dashboard-grid">
-            <WeatherWidget place="Bruxelles" intervalMs={15000} />
-            {/* Vous pouvez ajouter d'autres widgets ici */}
+            <WeatherWidget />
+            <DisplayCard />
           </div>
         )}
       </div>
 
+      
+
       {/* Scène 360° en plein écran */}
       <Demo />
+
+      
     </div>
   )
 }

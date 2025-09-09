@@ -13,7 +13,7 @@ function Demo2() {
     <div style={{ width: '100%', height: '80vh', margin: '20px auto' }}>
       <Canvas camera={{ position: [0, 0, 5] }}>
         {/* Éclairage */}
-        <ambientLight intensity={0.5} />
+        <ambientLight intensity={0.} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         
         {/* Le modèle 3D importé */}
@@ -21,7 +21,7 @@ function Demo2() {
         
         {/* Contrôles de drag avec la souris */}
         <OrbitControls 
-          enablePan={false} // Désactive le déplacement
+          enablePan={true} // Désactive le déplacement
           enableZoom={true} // Garde le zoom
           enableRotate={true} // Active la rotation
         />

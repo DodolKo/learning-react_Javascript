@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+.displaycard-container {
+    @apply rounded-xl p-4 relative flex flex-col justify-end;
+    background: var(--gradient-cyan);
+    min-height: 300px;
+}
+
+.displaycard-image {
+    @apply absolute inset-0 w-full h-full;
+    z-index: 1;
+}
+
+.displaycard-image img {
+    @apply w-full h-full object-cover rounded-xl;
+    object-position: top center;
+}
+
+.displaycard-header {
+    @apply bg-red-500/25 relative z-10;
+
+    h1 {
+        @apply text-lg;
+        font-family: var(--font-title);
+        color: var(--color-accent);
+    }
+    h2 {
+        @apply text-xs;
+        font-family: var(--font-subtitle);
+        color: var(--color-accent);
+    }
+}
+
+.displaycard-information {
+    @apply  p-2 rounded-md relative z-10 mt-auto;
+    
+    p {
+        @apply text-xs;
+        font-family: var(--font-subtexte);
+        color: var(--color-accent);
+    }
+}
+

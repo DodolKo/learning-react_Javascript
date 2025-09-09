@@ -1,8 +1,6 @@
 /* Version 1.0 du header de base*/
 import './header.css'
 
-const appName = "Learning React"
-
 const Header = ({title, baseline}) => {
     return (
         <header className="header-Container">
