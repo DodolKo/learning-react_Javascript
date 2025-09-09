@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+/* WeatherWidget styles - Design moderne comme l'image */
+.weather-widget {
+  @apply w-full max-w-md h-36 p-4 bg-gradient-to-br from-teal-400 to-teal-500 rounded-2xl shadow-lg;
+  /* Largeur adaptative avec max-width pour la grille */
+}
+
+.weather-widget__main {
+  @apply flex justify-between items-start mb-2;
+}
+
+.weather-widget__left {
+  @apply flex flex-col;
+}
+
+.weather-widget__condition {
+  @apply text-white text-base font-medium mb-1 flex items-center gap-2;
+}
+
+.weather-widget__icon {
+  @apply text-lg;
+}
+
+.weather-widget__location {
+  @apply text-white/80 text-xs;
+}
+
+.weather-widget__temperature {
+  @apply text-white text-2xl font-bold;
+}
+
+.weather-widget__details {
+  @apply flex justify-between mt-3;
+}
+
+.weather-widget__detail {
+  @apply flex flex-col text-center;
+}
+
+.weather-widget__detail-value {
+  @apply text-white text-xs font-medium;
+}
+
+.weather-widget__detail-label {
+  @apply text-white/70 text-xs mt-0.5;
+}
+
+.weather-widget__loading {
+  @apply flex items-center justify-center text-white h-40;
+}
+
+.weather-widget__error {
+  @apply text-white bg-red-500/20 rounded-lg p-4 h-40 flex items-center justify-center;
+}

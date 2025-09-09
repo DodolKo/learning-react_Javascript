@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 /* CSS Reset basique - Les fondamentaux */
 
 /* Reset de base */
@@ -51,4 +53,31 @@ img {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/* Layout de l'application */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+/* Le contenu principal prend tout l'espace disponible */
+.app > *:not(:first-child) {
+  flex: 1;
+}
+
+/* Dashboard Grid - Pour organiser les widgets */
+.dashboard-grid {
+  @apply grid gap-4 p-4;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* Snap sur la grille */
+  scroll-snap-type: both mandatory;
+}
+
+/* Widget dans la grille */
+.dashboard-grid > * {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }

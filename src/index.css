@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import "tailwindcss";
 
-@theme {
+/* Variables CSS personnalisées */
+:root {
   --color-primary: #00f0ff;
   --color-secondary: #000000;
   --color-accent: #ffffff;
@@ -10,7 +10,6 @@
   --color-title: #00f0f0;
   --color-text: #00f0ff;
 
-  
   --font-family-sans: 'Space Grotesk', sans-serif;
   --font-family-serif: 'Space Grotesk', sans-serif;
   --font-family-mono: 'Space Mono', monospace;

@@ -41,7 +41,7 @@ const MotionHeader = ({title}) => {
     // === RENDER ===
     return (
         <motion.header 
-            className="header__container"
+            className="header-container"
             initial={{ scale: 1.0, opacity: 1.0, x: -width}}
             animate={{ scale: 1.0, opacity: 1.0, x: 0}}
             transition={{
@@ -51,7 +51,7 @@ const MotionHeader = ({title}) => {
             }}
         >
             <motion.div 
-                className="header__logo"
+                className="header-logo"
             >
                 {/* Titre avec nom utilisateur */}
                 {title && <h1> Hey,<span className='userName'> {user.name} </span>!</h1>}

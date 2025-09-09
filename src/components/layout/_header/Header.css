@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
-.header__container {
-    @apply p-4 text-start mx-2;
+.header-container {
+    @apply p-2 md:p-4 lg:p-6 mx-2 text-start ;
 }
 
-.header__logo {
+.header-logo {
     h1 {
-        @apply text-lg text-white;
+        @apply text-sm lg:text-2xl text-white ;
         /* can use an @apply with custom @theme for the moment ! */
         font-family: var(--font-title);
     }
     
     h2 {
-        @apply text-xs text-white;
+        @apply text-xs lg:text-xl text-white;
         /* can use an @apply with custom @theme for the moment ! */
         font-family: var(--font-text);
+        font-weight: lighter;
     }
 }
 
-.header__logo .userName {
+.header-logo .userName {
     color: var(--color-title) !important;
     font-weight: bold;
 }

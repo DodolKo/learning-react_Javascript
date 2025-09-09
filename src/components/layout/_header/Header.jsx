@@ -5,8 +5,8 @@ const appName = "Learning React"
 
 const Header = ({title, baseline}) => {
     return (
-        <header className="headerContainer">
-            <div className="header__logo">
+        <header className="header-Container">
+            <div className="header-logo">
                 <h1> {title} </h1>
                 <h2> {baseline} </h2>
             </div>
