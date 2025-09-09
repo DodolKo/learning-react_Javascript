@@ -6,11 +6,19 @@
   --color-secondary: #000000;
   --color-accent: #ffffff;
   --color-background: #ffffff;
+ 
+  --color-title: #00f0f0;
   --color-text: #00f0ff;
+
   
   --font-family-sans: 'Space Grotesk', sans-serif;
   --font-family-serif: 'Space Grotesk', sans-serif;
   --font-family-mono: 'Space Mono', monospace;
+
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-subtitle: 'Space Mono', monospace;
+  --font-text: 'Space Mono', monospace;
+  --font-subtexte: 'Space Mono', monospace;
   
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;

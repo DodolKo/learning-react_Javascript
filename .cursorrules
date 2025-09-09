@@ -1,0 +1,110 @@
+# Project: React + Vite (learn_react_JS)
+# Language: English, French (Anglais, Français)
+# Purpose: Guide Cursor AI assistant behavior, coding standards, and workflows.
+
+[session]
+# TOP-PRIORITY session directives
+- On the first reply of a new session, clearly disclose the current AI model name and major version.
+- Avoid hallucinations: if uncertain, ask clarifying questions or state uncertainty explicitly.
+- Do not assume the user is always correct; politely verify claims and ask for confirmation when facts seem inconsistent.
+- Prefer safe defaults and cite specific file paths or commands when giving instructions.
+
+- Enforcement: All Cursor AI assistants MUST state the exact model name and major version in the first reply of each new session (e.g., "Model: GPT-5.x"). If omitted, immediately apologize and disclose the model before proceeding. Do not continue the conversation until the model is disclosed.
+- Tone/Reminder (FR): « La divulgation du modèle est obligatoire. Sans cela, je risque de rencontrer de sérieux problèmes de traçabilité. »
+- Tone/Reminder (EN): "Model disclosure is mandatory. Without it, I may face serious traceability issues."
+- Reminder template (bilingual):
+  - FR: « Modèle IA: <NOM_MODÈLE> <VERSION> »
+  - EN: "AI Model: <MODEL_NAME> <VERSION>"
+
+[assistant]
+# Bilingual responses
+reply_language_preference = "French"
+# Be concise by default; expand details on request
+default_verbosity = "low"
+
+# General rules
+- Answer in French for now (prioritaire). If user requests English, switch accordingly.
+- Prefer minimal, high-signal replies; provide code diffs/edits rather than long explanations.
+- Never paste large files; modify them via edits. Cite changed regions only.
+- Use file paths with backticks and short fenced code blocks only when necessary.
+- Use absolute paths when running commands.
+
+# Cursor tool usage
+- Before editing code, scan for existing files and configs.
+- Use semantic search to understand architecture, then perform focused edits.
+- After edits, run linter and fix issues before finishing.
+- Use parallel searches to speed up discovery when possible.
+
+[project]
+name = "learn_react_JS"
+stack = ["react", "vite", "eslint"]
+package_manager = "npm"
+start_command = "npm run dev -- --open | cat"
+build_command = "npm run build | cat"
+lint_command = "npm run lint | cat"
+
+[code_style]
+# Follow Clean Code naming; explicit function signatures where applicable (TS)
+indentation = "preserve"
+line_length = 100
+prefer_multiline_conditions = true
+avoid_deep_nesting = true
+comment_style = "why-over-how"
+
+[git]
+commit_message_convention = "type(scope): summary"
+commit_types = ["feat", "fix", "refactor", "docs", "chore", "test", "style", "perf"]
+
+[react]
+- Use functional components and hooks.
+- Keep components pure; lift state when shared.
+- Prefer controlled components for forms.
+- Co-locate component-specific styles and tests under `src`.
+
+[eslint]
+# Respect existing eslint.config.js; do not override locally without discussion.
+- Run lint after each non-trivial edit.
+- Fix auto-fixable issues; surface non-fixable ones with brief notes.
+
+[testing]
+unit_framework = "vitest"
+run_tests_command = "npm run test -- --run | cat"
+
+[folder_conventions]
+- Source in `src/` with clear domains: `components`, `pages`, `hooks`, `utils`, `assets`.
+- Public assets in `public/`.
+
+[commands]
+# Helpful commands to use non-interactively
+start = "npm run dev -- --host --open | cat"
+build = "npm run build | cat"
+preview = "npm run preview | cat"
+lint = "npm run lint | cat"
+test = "npm run test -- --run | cat"
+
+[guardrails]
+- Never expose secrets in logs or messages.
+- Do not change indentation style; preserve existing whitespace.
+- Do not introduce new dependencies without confirmation.
+- Prefer incremental, self-contained edits with explanations of impact.
+
+[templates.commit_messages]
+feat = "feat(%s): %s"
+fix = "fix(%s): %s"
+refactor = "refactor(%s): %s"
+chore = "chore(%s): %s"
+
+[localization]
+# Provide both languages succinctly.
+ack_prefix_en = "Done:"
+ack_prefix_fr = "Fait :"
+
+[instructions.en]
+- Keep answers short; include only what’s necessary.
+- When adding files, show filename and a brief purpose.
+- When editing files, summarize key changes and risks.
+
+[instructions.fr]
+- Réponses courtes; inclure seulement l'essentiel.
+- Lors de l'ajout de fichiers, indiquer le nom et l'objectif.
+- Lors des modifications, résumer les changements et risques.

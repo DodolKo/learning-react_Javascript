@@ -1,21 +1,39 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 import './App.css'
 
 /*import component*/
-import  Header from './components/layout/_header/motionHeader.jsx'
-import UserTable from './components/layout/_userTable/UserTable.jsx'
+import MotionHeader from '@/components/layout/_header/motionHeader.jsx'
+import UserTable from '@/components/layout/_userTable/UserTable.jsx'
+
+// Import du store viewport
+import { useViewportStore } from '@/stores/ViewPortStore'
 
 const libName = "React"
 
 const App = () => {
+  // Initialise l'écoute du viewport
+  useEffect(() => {
+    const handleResize = () => {
+      useViewportStore.getState().setViewport(window.innerWidth, window.innerHeight);
+    };
+    
+    // Écoute initiale
+    handleResize();
+    
+    // Écoute les changements
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
   return (
     <div className='app'>
-      <Header 
-        title='Bienvenu(e) sur mon premier projet react'
-        baseline="C'est pas mal react quand même !"
+      <MotionHeader 
+        title='K3M0N0'
       />
 
       <UserTable />

@@ -1,9 +1,26 @@
 @import "tailwindcss";
 
 .header__container {
-    @apply bg-white text-primary p-4 rounded-b-xl text-center mx-2;
+    @apply bg-red-500/25 p-4 text-start mx-2;
+    
+    
 }
 
-.header__logo h1 {
+.header__logo {
+    
     @apply  text-3xl font-bold font-sans;
+
+    h1 {
+        @apply text-lg;
+        /* can use an @apply with custom @theme for the moment ! */
+        color:var(--color-title);
+        font-family: var(--font-title);
+    };
+    h2 {
+        @apply text-xs;
+        /* can use an @apply with custom @theme for the moment ! */
+        color:var(--color-title);
+        font-family: var(--font-text);
+    }
+
 }
