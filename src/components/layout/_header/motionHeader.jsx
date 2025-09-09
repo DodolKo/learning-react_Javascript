@@ -2,35 +2,33 @@
 import { motion } from 'motion/react'
 import { useViewport } from '@/hooks/useViewport'
 import { useUserStore } from '@/stores/UserStore'
-import { useDateTimeStore } from '@/stores/DateTimeStore'
+import { useDateTime } from '@/hooks/useDateTime'
 import { useEffect, useRef } from 'react'
 import './Header.css'
 
-const MotionHeader = ({title, baseline}) => {
+/**
+ * Composant MotionHeader - Header animé avec gestion responsive
+ * Responsabilité : Affichage uniquement (logique d'initialisation externalisée)
+ * 
+ * @param {string} title - Titre à afficher
+ */
+const MotionHeader = ({title}) => {
+    // === HOOKS ===
+    // Gestion responsive (viewport)
     const { width, isMobile, isTablet, isDesktop } = useViewport();
-    const { user, initializeUser } = useUserStore();
-    const { currentDateTime, initializeDateTime } = useDateTimeStore();
+    
+    // Données utilisateur (statiques)
+    const { user } = useUserStore();
+    
+    // Données date/heure (dynamiques, auto-initialisées)
+    const { currentDateTime, isLoaded: isDateTimeLoaded } = useDateTime();
+    
+    // === REFS ===
+    // Tracking des changements d'appareil pour les logs
     const lastDeviceType = useRef(null);
     
-    // Initialiser l'utilisateur au montage du composant
-    useEffect(() => {
-        // Ne charger que si l'utilisateur n'est pas déjà chargé
-        if (!user.isLoaded) {
-            initializeUser().then((userData) => {
-                if (userData) {
-                    console.log('✅ Utilisateur chargé depuis JSON:', userData);
-                }
-            });
-        }
-    }, []); // Tableau vide pour éviter les re-renders
-    
-    // Initialiser la date/heure au montage du composant
-    useEffect(() => {
-        const cleanup = initializeDateTime();
-        return cleanup; // Cleanup du timer
-    }, []);
-    
-    // Log uniquement quand le type d'appareil change
+    // === EFFECTS ===
+    // Log des changements de type d'appareil (debug uniquement)
     useEffect(() => {
         const currentDeviceType = isMobile ? 'Mobile' : isTablet ? 'Tablet' : 'Desktop';
         
@@ -40,25 +38,39 @@ const MotionHeader = ({title, baseline}) => {
         }
     }, [isMobile, isTablet, isDesktop, width]);
     
+    // === RENDER ===
     return (
         <motion.header 
             className="header__container"
             initial={{ scale: 1.0, opacity: 1.0, x: -width}}
             animate={{ scale: 1.0, opacity: 1.0, x: 0}}
             transition={{
-                duration: 0.25,
-                delay: 0.4,
-                ease: "easeOut"
+                duration: 0.50,
+                delay: 0.25,
+                ease: "backInOut",
             }}
         >
-            <div className="header__logo">
-                {title && <h1> Hey, {user.name} !</h1>}
-                {currentDateTime.isLoaded && 
-                    ( <h2> {currentDateTime.date} - {currentDateTime.time} </h2>)
-                }
-            </div>
-
-
+            <motion.div 
+                className="header__logo"
+            >
+                {/* Titre avec nom utilisateur */}
+                {title && <h1> Hey,<span className='userName'> {user.name} </span>!</h1>}
+                
+                {/* Date et heure en temps réel */}
+                {isDateTimeLoaded && (
+                    <motion.h2
+                        initial={{ x: -width/2 }}
+                        animate={{ x: 0 }}
+                        transition={{
+                            duration: 0.50,
+                            delay: 0.50,
+                            ease: "backInOut"
+                        }}
+                    > 
+                        {currentDateTime.date} - {currentDateTime.time} 
+                    </motion.h2>
+                )}
+            </motion.div>
         </motion.header>
     )
 }

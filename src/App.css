@@ -10,7 +10,8 @@
 }
 
 html {
-  background-color: hsl(0, 0%, 25%);
+  background: radial-gradient(100% 50% at 50% 0%, #07848dff 0%, #0c7179ff 7.5%, #322925ff 100%);
+  min-height: 100vh;
 }
 
 /* Reset du body */

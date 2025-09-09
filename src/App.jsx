@@ -1,34 +1,19 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
 import './App.css'
 
 /*import component*/
 import MotionHeader from '@/components/layout/_header/motionHeader.jsx'
 import UserTable from '@/components/layout/_userTable/UserTable.jsx'
 
-// Import du store viewport
-import { useViewportStore } from '@/stores/ViewPortStore'
-
-const libName = "React"
+// Import du hook d'initialisation centralisé
+import { useAppInitialization } from '@/hooks/useAppInitialization'
 
 const App = () => {
-  // Initialise l'écoute du viewport
-  useEffect(() => {
-    const handleResize = () => {
-      useViewportStore.getState().setViewport(window.innerWidth, window.innerHeight);
-    };
-    
-    // Écoute initiale
-    handleResize();
-    
-    // Écoute les changements
-    window.addEventListener('resize', handleResize);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // Initialisation centralisée de l'application
+  // Ce hook gère l'initialisation des stores (user, datetime, etc.)
+  const { isUserLoaded } = useAppInitialization();
+  
+  // Debug : Log de l'état d'initialisation
+  console.log('🔍 App - User loaded:', isUserLoaded);
   
   return (
     <div className='app'>

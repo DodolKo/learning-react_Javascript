@@ -11,6 +11,9 @@ export const useDateTimeStore = create((set, get) => ({
     isLoaded: false
   },
   
+  // Timer global (une seule instance)
+  timerInterval: null,
+  
   // Actions
   setDateTime: (dateTimeData) => set({ 
     currentDateTime: { ...dateTimeData, isLoaded: true } 
@@ -70,8 +73,17 @@ export const useDateTimeStore = create((set, get) => ({
     return dateTimeData;
   },
   
-  // Fonction pour initialiser avec un timer
+  // Fonction pour initialiser avec un timer (auto-initialisation)
   initializeDateTime: () => {
+    const state = get();
+    
+    // Éviter les timers multiples
+    if (state.timerInterval) {
+      return; // Timer déjà actif
+    }
+    
+    console.log('⏰ Initialisation du timer global date/heure');
+    
     // Mise à jour immédiate
     get().updateDateTime();
     
@@ -80,7 +92,17 @@ export const useDateTimeStore = create((set, get) => ({
       get().updateDateTime();
     }, 1000);
     
-    // Retourner la fonction de nettoyage
-    return () => clearInterval(interval);
+    // Sauvegarder la référence du timer
+    set({ timerInterval: interval });
+  },
+  
+  // Fonction pour arrêter le timer
+  stopTimer: () => {
+    const state = get();
+    if (state.timerInterval) {
+      console.log('🛑 Arrêt du timer global date/heure');
+      clearInterval(state.timerInterval);
+      set({ timerInterval: null });
+    }
   }
 }));
